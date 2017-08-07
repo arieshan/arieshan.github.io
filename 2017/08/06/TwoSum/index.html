@@ -3,7 +3,6 @@
 <h3 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h3><pre><code>Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
-`
 </code></pre><hr>
 <h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h3><p>A hash table is built exactly for this purpose, it supports fast look up in near constant time. I say “near” because if a collision occurred, a look up could degenerate to O(n) time. But look up in hash table should be amortized O(1)time as long as the hash function was chosen carefully.</p>
 <p>While we iterate and inserting elements into the table, we also look back to check if current element’s complement already exists in the table. If it exists, we have found a solution and return immediately.</p>
@@ -18,4 +17,4 @@ return [0, 1].
             d[num]=i
 </code></pre><hr>
 <h3 id="Follow-up"><a href="#Follow-up" class="headerlink" title="Follow up:"></a>Follow up:</h3><p>What if the element is between 0~9</p>
-</article><br><br><span class="next-post"><a href="/2017/07/23/hello-world/" itemprop="url">Older Post ⇒</a></span><br><br><br><ins style="display:block" data-ad-client="ca-pub-8265476096138958" data-ad-slot="5483722640" data-ad-format="auto" class="adsbygoogle"></ins></main><script async defer src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></body></html>
+</article><br><br><span class="next-post"><a href="/2017/07/31/Longest Substring Without Repeating Characters/" itemprop="url">Older Post ⇒</a></span><br><br><br><ins style="display:block" data-ad-client="ca-pub-8265476096138958" data-ad-slot="5483722640" data-ad-format="auto" class="adsbygoogle"></ins></main><script async defer src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></body></html>
