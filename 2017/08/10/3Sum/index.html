@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en-us"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>3Sum | MyBlog</title><meta name="description"><meta name="generator" content="MyBlog"><meta name="author" content="arieshan"><meta name="keywords"><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=0"><link rel="stylesheet" type="text/css" href="/styles/screen.css"><link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png"><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128.png"><link rel="icon" type="image/png" sizes="196x196" href="/images/favicon-196x196.png"><meta name="msapplication-TileColor" content="#FFFFFF"><meta name="msapplication-TileImage" content="mstile-144x144.png"><meta name="msapplication-square70x70logo" content="mstile-70x70.png"><meta name="msapplication-square150x150logo" content="mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="mstile-310x150.png"><meta name="msapplication-square310x310logo" content="mstile-310x310.png"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head><body itemscope itemtype="https://schema.org/WebPage"><header itemscope itemtype="https://schema.org/WPHeader"><div class="logo"></div><h1><a href="/" alt="MyBlog" title="MyBlog" itemprop="headline">MyBlog</a></h1><p itemprop="description"></p><nav itemscope itemtype="https://schema.org/SiteNavigationElement"><ul><li itemprop="name"><a href="/ " alt="home" title="home" itemprop="url">home</a></li><li itemprop="name"><a href="/articles" alt="articles" title="articles" itemprop="url">articles</a></li><li itemprop="name"><a href="/author" alt="author" title="author" itemprop="url">author</a></li></ul></nav><div class="space"></div></header><main itemscope itemtype="https://schema.org/Blog"><article class="full"><h1 itemprop="headline" class="post-heading">3Sum</h1><span class="post-meta"></span><br><br><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h3><p>Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p>
+<p>Note: The solution set must not contain duplicate triplets.</p>
+<pre><code>For example, given array S = [-1, 0, 1, 2, -1, -4],
+
+A solution set is:
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
+</code></pre><hr>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h3><p>Sort the array and traverse the array from 0 ~ len(array) - 2. for each element i use i + 1 ~ len(array) - 2 do  2 sum. the new target is target - array[i]. repeat the process until find all solution. for each tuple i, j, k. if array[i]. Be careful the duplicates may cause duplicate solution.  Time complexity is O(n^2)</p>
+<hr>
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation:"></a>Implementation:</h3><pre><code>def threeSum(self, nums):
+    if len(nums) &lt;3: 
+        return []
+    elif len(nums) == 3:
+        if sum(nums) == 0:
+            return [sorted(nums)]
+    nums.sort()
+    res = []
+    for i in list(range(len(nums)-2)):
+        if i &gt; 0 and nums[i] == nums[i-1]: # avoid duplication
+            continue
+        j = i + 1
+        k = len(nums) - 1
+        while j &lt; k:
+            if j &gt; i + 1 and nums[j] == nums[j-1]: # avoid duplication
+                j += 1
+                continue
+            if k &lt; len(nums) - 1 and nums[k] == nums[k+1]: # avoid duplication
+                k -= 1
+                continue
+            if nums[i] + nums[j] + nums[k] == 0:
+                res.append([nums[i],nums[j],nums[k]])
+            if nums[i] + nums[j] + nums[k] &lt; 0:
+                j += 1
+            else:
+                k -= 1
+    return res
+</code></pre></article><br><br><span class="next-post"><a href="/2017/08/09/String to Integer/" itemprop="url">Older Post ⇒</a></span><br><br><br><ins style="display:block" data-ad-client="ca-pub-8265476096138958" data-ad-slot="5483722640" data-ad-format="auto" class="adsbygoogle"></ins></main><script async defer src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></body></html>
