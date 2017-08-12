@@ -15,7 +15,7 @@ A solution set is:
 <p>the function return immediately when nums[i]<em>4 &gt; target<br>the inner loop break immediately when nums[j]</em>4 &lt; target.</p>
 <p>Time Complexity is O(n^3)</p>
 <hr>
-<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation:"></a>Implementation:</h2><h3 id="Iterative"><a href="#Iterative" class="headerlink" title="Iterative:"></a>Iterative:</h3><pre><code>class Solution:
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation:"></a>Implementation:</h2><h3 id="Iterative"><a href="#Iterative" class="headerlink" title="Iterative"></a>Iterative</h3><pre><code>class Solution:
 # @return a list of lists of length 4, [[val1,val2,val3,val4]]
 def fourSum(self, num, target):
     two_sum = collections.defaultdict(list)
@@ -32,7 +32,7 @@ def fourSum(self, num, target):
         del two_sum[t]
     return [list(r) for r in res]
 </code></pre><hr>
-<h3 id="Recursive"><a href="#Recursive" class="headerlink" title="Recursive:"></a>Recursive:</h3><pre><code>def fourSum(self, nums, target):
+<h3 id="Recursive"><a href="#Recursive" class="headerlink" title="Recursive"></a>Recursive</h3><pre><code>def fourSum(self, nums, target):
     nums.sort()
     results = []
     self.findNsum(nums, target, 4, [], results)
@@ -65,7 +65,7 @@ def findNsum(self, nums, target, N, result, results):
                 self.findNsum(nums[i+1:], target-nums[i], N-1, result+[nums[i]], results)
     return
 </code></pre><hr>
-<h3 id="Revised"><a href="#Revised" class="headerlink" title="Revised:"></a>Revised:</h3><pre><code>def fourSum(self, nums, target):
+<h3 id="Revised"><a href="#Revised" class="headerlink" title="Revised"></a>Revised</h3><pre><code>def fourSum(self, nums, target):
     def findNsum(nums, target, N, result, results):
         if len(nums) &lt; N or N &lt; 2 or target &lt; nums[0]*N or target &gt; nums[-1]*N:  # early termination
             return
