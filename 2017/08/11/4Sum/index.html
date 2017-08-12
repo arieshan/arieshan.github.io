@@ -31,7 +31,8 @@ def fourSum(self, num, target):
                     res.add(tuple(sorted(num[i] for i in pair1 | pair2)))
         del two_sum[t]
     return [list(r) for r in res]
-</code></pre><h3 id="Recursive"><a href="#Recursive" class="headerlink" title="Recursive:"></a>Recursive:</h3><pre><code>def fourSum(self, nums, target):
+</code></pre><hr>
+<h3 id="Recursive"><a href="#Recursive" class="headerlink" title="Recursive:"></a>Recursive:</h3><pre><code>def fourSum(self, nums, target):
     nums.sort()
     results = []
     self.findNsum(nums, target, 4, [], results)
@@ -63,7 +64,8 @@ def findNsum(self, nums, target, N, result, results):
             if i == 0 or i &gt; 0 and nums[i-1] != nums[i]:  # recursively reduce N
                 self.findNsum(nums[i+1:], target-nums[i], N-1, result+[nums[i]], results)
     return
-</code></pre><h3 id="Revised"><a href="#Revised" class="headerlink" title="Revised:"></a>Revised:</h3><pre><code>def fourSum(self, nums, target):
+</code></pre><hr>
+<h3 id="Revised"><a href="#Revised" class="headerlink" title="Revised:"></a>Revised:</h3><pre><code>def fourSum(self, nums, target):
     def findNsum(nums, target, N, result, results):
         if len(nums) &lt; N or N &lt; 2 or target &lt; nums[0]*N or target &gt; nums[-1]*N:  # early termination
             return
