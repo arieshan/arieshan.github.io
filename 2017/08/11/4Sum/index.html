@@ -13,6 +13,7 @@ A solution set is:
 <p>To avoid duplicate list items, I skip unnecessary indices at two locations:</p>
 <p>one at the end of the outer loop (i-loop)<br>the other at the end of the inner loop (j-loop).<br>To avoid useless computations, the following is kind of critical:</p>
 <p>the function return immediately when nums[i]<em>4 &gt; target<br>the inner loop break immediately when nums[j]</em>4 &lt; target.</p>
+<p>Time Complexity is O(n^3)</p>
 <hr>
 <h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation:"></a>Implementation:</h3><h3 id="Iterative"><a href="#Iterative" class="headerlink" title="Iterative:"></a>Iterative:</h3><pre><code>class Solution:
 # @return a list of lists of length 4, [[val1,val2,val3,val4]]
